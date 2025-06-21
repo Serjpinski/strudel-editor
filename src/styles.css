@@ -1,0 +1,29 @@
+body {
+    background-color: #222;
+}
+
+.container {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.my-strudel-editor {
+    flex: 1;
+    min-width: 0; /* Prevents overflow */
+}
+
+.right-panel {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+    gap: 16px;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
