@@ -9,7 +9,7 @@ Music generated with Strudel
 $ npm install
 ```
 
-### Development
+### Run
 
 ```bash
 $ npm run dev
