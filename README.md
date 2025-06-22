@@ -1,5 +1,5 @@
-# strudel-music
-Music generated with Strudel
+# strudel-editor
+Simple editor for making music with Strudel
 
 ## Project Setup
 
