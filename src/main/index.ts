@@ -3,7 +3,7 @@ import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
 
-import './backendApi'; // Load backend API handlers
+import './backendApi' // Load backend API handlers
 
 function createWindow(): void {
   // Create the browser window.
@@ -20,8 +20,8 @@ function createWindow(): void {
   })
 
   mainWindow.on('ready-to-show', () => {
-    mainWindow.maximize();
-    mainWindow.show();
+    mainWindow.maximize()
+    mainWindow.show()
   })
 
   mainWindow.webContents.setWindowOpenHandler((details) => {
