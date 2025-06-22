@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Strudel Music</title>
+<!--  &lt;!&ndash; https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP &ndash;&gt;-->
+<!--  <meta-->
+<!--    http-equiv="Content-Security-Policy"-->
+<!--    content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:"-->
+<!--  />-->
+
+  <link href="./assets/index.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="container">
+    <div id="strudel" class="my-strudel-editor"></div>
+    <div class="right-panel">
+      <button id="play">play</button>
+      <button id="stop">stop</button>
+      <label>
+        <select>
+          <option value="option1">Option 1 4t43yg5hethj45j46j</option>
+          <option value="option2" selected>Option 2</option>
+          <option value="option3">Option 3</option>
+        </select>
+      </label>
+    </div>
+  </div>
+  <script type="module" src="src/strudel.ts"></script>
+</body>
+</html>

@@ -1,20 +1,16 @@
 # strudel-music
 Music generated with Strudel
 
-### Setup
+## Project Setup
 
-1. Clone Strudel's git repository in a folder outside this project
+### Install
 
-```
-cd ..
-git clone https://codeberg.org/uzu/strudel
-
+```bash
+$ npm install
 ```
 
-2. Update package.json to point to the correct folder
+### Development
 
+```bash
+$ npm run dev
 ```
-TODO
-```
-
-3. Run main.js
