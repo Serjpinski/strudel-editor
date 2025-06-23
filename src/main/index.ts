@@ -3,7 +3,7 @@ import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
 
-import './backendApi' // Load backend API handlers
+import './backendController' // Load backend API handlers
 
 function createWindow(): void {
   // Create the browser window.

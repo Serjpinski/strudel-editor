@@ -1,6 +1,6 @@
 import { contextBridge } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
-import { backendAPI } from './backendApi'
+import { backendApi } from './backendClient'
 
 // Use `contextBridge` APIs to expose Electron APIs to
 // renderer only if context isolation is enabled, otherwise
@@ -8,13 +8,11 @@ import { backendAPI } from './backendApi'
 if (process.contextIsolated) {
   try {
     contextBridge.exposeInMainWorld('electron', electronAPI)
-    contextBridge.exposeInMainWorld('backend', backendAPI)
+    contextBridge.exposeInMainWorld('backend', backendApi)
   } catch (error) {
     console.error(error)
   }
 } else {
-  // @ts-ignore (define in dts)
   window.electron = electronAPI
-  // @ts-ignore (define in dts)
-  window.backend = backendAPI
+  window.backend = backendApi
 }

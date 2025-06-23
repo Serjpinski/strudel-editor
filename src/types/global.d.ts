@@ -1,3 +1,5 @@
+import { ElectronAPI } from "@electron-toolkit/preload";
+
 export {}
 
 declare global {
@@ -6,6 +8,7 @@ declare global {
   declare module '*.svg?asset'
 
   interface Window {
+    electron: ElectronAPI
     backend: BackendApi
   }
 
