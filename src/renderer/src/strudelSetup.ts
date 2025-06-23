@@ -4,8 +4,6 @@ import { StrudelRepl } from '@strudel/repl'
 // Loads strudel-editor
 import '@strudel/repl'
 
-const musicFolder = '../../../strudel-music/music'
-
 const backend = (window as Window).backend as BackendApi
 
 function init(): void {
@@ -25,7 +23,7 @@ function strudelSetup(): void {
   document.getElementById('play')?.addEventListener('click', () => repl.editor.evaluate())
   document.getElementById('stop')?.addEventListener('click', () => repl.editor.stop())
 
-  backend.readFile(musicFolder + '/' + 'example').then((content) => {
+  backend.readFile('example').then((content) => {
     repl.setAttribute('code', content)
   })
 }

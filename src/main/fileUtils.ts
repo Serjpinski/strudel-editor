@@ -1,12 +1,16 @@
 import fs from 'fs'
-import path from 'path'
 
 export function readFileContent(file: string): string {
-  const filePath = path.join(__dirname, file)
-  return fs.readFileSync(filePath, 'utf-8')
+  return fs.readFileSync(file, 'utf-8')
 }
 
 export function writeFileContent(file: string, content: string): void {
-  const filePath = path.join(__dirname, file)
-  fs.writeFileSync(filePath, content, 'utf-8')
+  fs.writeFileSync(file, content, 'utf-8')
+}
+
+export function listFolderFiles(folder: string): string[] {
+  return fs
+    .readdirSync(folder, { withFileTypes: true })
+    .filter((entry) => entry.isFile())
+    .map((entry) => entry.name)
 }
