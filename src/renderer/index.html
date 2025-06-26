@@ -16,11 +16,23 @@
   <div class="container">
     <div id="strudel" class="my-strudel-editor"></div>
     <div class="right-panel">
-      <button id="play">play</button>
-      <button id="stop">stop</button>
+      <label class="rightPanelTitle">
+        current file
+      </label>
       <label>
         <select id="musicFileSelector"></select>
       </label>
+      <label class="rightPanelTitle">
+        restore backup
+      </label>
+      <label>
+        <select id="backupSelector"></select>
+      </label>
+      <label class="rightPanelTitle">
+        strudel
+      </label>
+      <button id="play">play</button>
+      <button id="stop">stop</button>
     </div>
   </div>
   <script type="module" src="src/strudelSetup.ts"></script>

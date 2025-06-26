@@ -21,8 +21,6 @@ function strudelSetup(): void {
   repl = document.createElement('strudel-editor')
 
   document.getElementById('strudel')?.append(repl)
-  document.getElementById('play')?.addEventListener('click', () => repl.editor.evaluate())
-  document.getElementById('stop')?.addEventListener('click', () => repl.editor.stop())
 
   backend.listMusicFiles().then((musicFiles) => {
     const musicFileSelector = document.getElementById('musicFileSelector')
@@ -39,6 +37,9 @@ function strudelSetup(): void {
     })
     selectMusicFile(musicFiles, Object.entries(musicFiles)[0][0])
   })
+
+  document.getElementById('play')?.addEventListener('click', () => repl.editor.evaluate())
+  document.getElementById('stop')?.addEventListener('click', () => repl.editor.stop())
 }
 
 function selectMusicFile(musicFiles: { [file: string]: string }, file: string): void {
