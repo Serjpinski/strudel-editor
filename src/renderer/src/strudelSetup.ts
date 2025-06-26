@@ -5,6 +5,7 @@ import { StrudelRepl } from '@strudel/repl'
 import '@strudel/repl'
 
 const backend = (window as Window).backend as BackendApi
+let repl: StrudelRepl
 
 function init(): void {
   window.addEventListener('DOMContentLoaded', () => {
@@ -17,15 +18,31 @@ function strudelSetup(): void {
     prebake: () => samples('github:tidalcycles/dirt-samples')
   })
 
-  const repl = document.createElement('strudel-editor') as StrudelRepl
+  repl = document.createElement('strudel-editor')
 
   document.getElementById('strudel')?.append(repl)
   document.getElementById('play')?.addEventListener('click', () => repl.editor.evaluate())
   document.getElementById('stop')?.addEventListener('click', () => repl.editor.stop())
 
-  backend.readFile('example').then((content) => {
-    repl.setAttribute('code', content)
+  backend.listMusicFiles().then((musicFiles) => {
+    const musicFileSelector = document.getElementById('musicFileSelector')
+    Object.entries(musicFiles).forEach((musicFile) => {
+      const fileName = musicFile[0]
+      const option = document.createElement('option')
+      option.value = fileName
+      option.text = fileName
+      musicFileSelector?.appendChild(option)
+    })
+    musicFileSelector?.addEventListener('change', (event) => {
+      const target = event.target as HTMLSelectElement
+      selectMusicFile(musicFiles, target.value)
+    })
+    selectMusicFile(musicFiles, Object.entries(musicFiles)[0][0])
   })
+}
+
+function selectMusicFile(musicFiles: { [file: string]: string }, file: string): void {
+  repl.setAttribute('code', musicFiles[file])
 }
 
 init()

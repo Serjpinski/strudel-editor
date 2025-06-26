@@ -13,7 +13,11 @@ declare global {
   }
 
   interface BackendApi {
-    readFile: (file: string) => Promise<string>
-    writeFile: (file: string, content: string) => Promise<void>
+    listMusicFiles: () => Promise<{ [file: string]: string }>
+    updateMusicFile: (
+      musicFiles: { [file: string]: string },
+      file: string,
+      content: string
+    ) => Promise<void>
   }
 }
