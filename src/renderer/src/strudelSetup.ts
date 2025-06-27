@@ -4,8 +4,10 @@ import { StrudelRepl } from '@strudel/repl'
 // Loads strudel-editor
 import '@strudel/repl'
 
+// Global variables
 const backend = (window as Window).backend as BackendApi
 let repl: StrudelRepl
+let play: boolean = false
 
 function init(): void {
   window.addEventListener('DOMContentLoaded', () => {
@@ -38,12 +40,32 @@ function strudelSetup(): void {
     selectMusicFile(musicFiles, Object.entries(musicFiles)[0][0])
   })
 
-  document.getElementById('play')?.addEventListener('click', () => repl.editor.evaluate())
-  document.getElementById('stop')?.addEventListener('click', () => repl.editor.stop())
+  document.getElementById('playButton')?.addEventListener('click', () => {
+    if (play) {
+      stopPlayButton()
+    } else {
+      playPlayButton()
+    }
+  })
 }
 
 function selectMusicFile(musicFiles: { [file: string]: string }, file: string): void {
   repl.setAttribute('code', musicFiles[file])
+  stopPlayButton()
+}
+
+function stopPlayButton(): void {
+  repl.editor.stop()
+  play = false
+  const playButton = document.getElementById('playButton') as HTMLButtonElement
+  playButton.textContent = 'play'
+}
+
+function playPlayButton(): void {
+  repl.editor.evaluate()
+  play = true
+  const playButton = document.getElementById('playButton') as HTMLButtonElement
+  playButton.textContent = 'stop'
 }
 
 init()
