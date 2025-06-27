@@ -44,7 +44,7 @@ function strudelSetup(): void {
     if (play) {
       stopPlayButton()
     } else {
-      playPlayButton()
+      startPlayButton()
     }
   })
 }
@@ -61,7 +61,7 @@ function stopPlayButton(): void {
   playButton.textContent = 'play'
 }
 
-function playPlayButton(): void {
+function startPlayButton(): void {
   repl.editor.evaluate()
   play = true
   const playButton = document.getElementById('playButton') as HTMLButtonElement
